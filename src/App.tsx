@@ -1,13 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Provider } from 'react-redux';
 import './App.css';
 import SleepScore from './Pages/SleepScore';
+import store from './store/store';
 
 function App() {
   return (
-    <div className="App w-screen h-screen">
-      <SleepScore></SleepScore>
-    </div>
+    <Provider store={store}>
+      <div className="App w-screen h-screen">
+        <SleepScore></SleepScore>
+      </div>
+    </Provider> 
   );
 }
 
