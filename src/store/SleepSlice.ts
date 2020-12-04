@@ -5,11 +5,12 @@ import { generateDailyHHIncrements } from '../utils/helpers'
 export interface SleepState { 
     fields: Field[]
     readyToCalculate: boolean; 
-    calculationResults: any; 
+    sleepScore: any; 
 }
 
 export interface Field {
     label: string;
+    code: string;
     selected: string | null;
     units: string;
 }
@@ -18,13 +19,15 @@ const SleepSlice = createSlice({
   name: 'sleep',
   initialState: {
     readyToCalculate: false,
-    calculationResults: false,
+    sleepScore: false,
     fields: [{
         label: "Duration in bed",
+        code: "duration_bed",
         selected: null,
         units: "hours"
         }, {
         label: "Duration asleep",
+        code: "duration_asleep",
         selected: null,
         units: "hours"
     }]
@@ -36,6 +39,9 @@ const SleepSlice = createSlice({
       field!.selected = selection; 
       state.readyToCalculate = allFieldsCompleted(state.fields);
     },
+    setScore(state, action) {
+      state.sleepScore = action.payload;
+    }
   }
 })
 
@@ -44,6 +50,6 @@ function allFieldsCompleted(fields: Field[]) {
     return fields.every((field: Field) => (field.selected != null));
 }
 
-export const { selectField } = SleepSlice.actions
+export const { selectField, setScore } = SleepSlice.actions
 
 export default SleepSlice.reducer
