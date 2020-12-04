@@ -1,10 +1,15 @@
-# Getting Started with Create React App
+# Sleep Score Dashboard
+# for Sleepio by Sarim Q. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+This solution was rapidly prototyped with the following technologies: 
+* React + TypeScript
+* Create React App
+* TailwindsCSS 
 
-In the project directory, you can run:
+Please first clone the [API](https://github.com/techromantic/sleep-score-api) for this project and follow the instructions in the README. 
+
+Once you have done that, clone this project. In the project directory, you can run: 
 
 ### `yarn start`
 

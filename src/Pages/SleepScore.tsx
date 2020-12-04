@@ -40,7 +40,7 @@ function SleepScore({sleep, dispatch}:SleepScoreProps) {
 
   return (
     <div className="h-full w-full grid grid-cols-3 grid-rows-3">
-        <div className="bg-blue-900 col-span-3 md:col-span-1 md:row-span-3">
+        <div className="bg-gradient-to-b md:bg-gradient-to-r from-blue-900 to-blue-300 col-span-3 md:col-span-1 md:row-span-3">
       
             <div className="h-full w-full flex justify-center items-end md:justify-end md:items-center">
                 <div className="flex flex-col mr-0 mb-2">
