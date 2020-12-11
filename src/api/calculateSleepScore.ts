@@ -20,7 +20,7 @@ export enum CalculateSleepScoreFields {
     "duration_asleep"
 }
 
-function extractFieldsForSleepScore(fields: Field[]) {
+export function extractFieldsForSleepScore(fields: Field[]) {
     var requiredFields = Object.values(CalculateSleepScoreFields);
     var submitSleepScoreInputs: any = {};
     fields.forEach((field) => {
@@ -37,6 +37,7 @@ export async function calculateSleepScore(fields: Field[]): Promise<Result<Sleep
         var scoreResponse = await requestSleepScore(sleepScoreInput);
         return scoreResponse;
     } catch (error) {
+        console.log(error);
         return {
             data: null,
             success: false,
@@ -45,7 +46,7 @@ export async function calculateSleepScore(fields: Field[]): Promise<Result<Sleep
     }
 }
 
-async function requestSleepScore(input:SleepScoreInput): Promise<Result<SleepScoreOutput | null>> {
+export async function requestSleepScore(input:SleepScoreInput): Promise<Result<SleepScoreOutput | null>> {
     return new Promise((resolve, reject) => {
             fetch(
                 "http://localhost:4040/sleep-score/calculate",
@@ -61,4 +62,8 @@ async function requestSleepScore(input:SleepScoreInput): Promise<Result<SleepSco
             })
             .catch((err) => reject(err));
     })
+}
+
+export default {
+    requestSleepScore, calculateSleepScore, extractFieldsForSleepScore, CalculateSleepScoreFields
 }
