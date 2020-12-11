@@ -63,7 +63,3 @@ export async function requestSleepScore(input:SleepScoreInput): Promise<Result<S
             .catch((err) => reject(err));
     })
 }
-
-export default {
-    requestSleepScore, calculateSleepScore, extractFieldsForSleepScore, CalculateSleepScoreFields
-}
